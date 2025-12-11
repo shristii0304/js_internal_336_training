@@ -16,6 +16,7 @@ for(let temp of fruit){
 console.log(fruit);
 fruit.push("papaya");
 fruit.pop();
+console.log(fruit);
 fruit.unshift("kiwi");
 fruit.shift();
 fruit.indexOf("banana");
