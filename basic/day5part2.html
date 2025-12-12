@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+
+</head>
+<body>
+    <form id="form1">
+       
+        <input type="text" placeholder="enter your name" id="1">
+        <input type="password" placeholder="enter your password" id="2">
+        <button type="submit"> submit</button>
+        <p style="color:red;" id="3"></p>
+    </form>
+    <script>
+         document.getElementById("form1").addEventListener("submit",function(event)
+        {
+          event.preventDefault();
+          let a=document.getElementById("1").value.trim();
+          let error=document.getElementById("3");
+          if(a=="")
+        {
+         error.innerHTML="PLZ FILL THE BLOCK";
+        }
+        else{
+            error.style="color:green";
+            error.innerHTML="succesfuuly";
+
+        }
+          
+        });
+    </script>
+    
+</body>
+</html>

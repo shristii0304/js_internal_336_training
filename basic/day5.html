@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>EXAMPLE OF JS</title>
+</head>
+<body>
+    <h1 id="hid1">hello world </h1>
+    <h2 id="hid2">this is second heading</h2>
+    <button onclick="fun()">click me</button>
+    <button onclick="fun1()">submit</button>
+    <button id="bid1">third</button>
+<script>
+document.getElementById("bid1").addEventListener("click",function(){
+       document.getElementById("hid1").innerHTML="value by click event";
+})
+    function fun()
+    {
+        document.getElementById("hid1").innerHTML="newwww value";
+       
+    }
+    function fun1(){
+        document.getElementById("hid2").innerHTML="heyyy";
+    }
+
+</script>
+    
+</body>
+</html>
