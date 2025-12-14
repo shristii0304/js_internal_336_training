@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 3</title>
+</head>
+<body>
+
+<img id="img" src="https://via.placeholder.com/200">
+<br>
+<button onclick="prev()">Previous</button>
+<button onclick="next()">Next</button>
+
+<script >let imgs = [
+  "https://via.placeholder.com/200",
+  "https://via.placeholder.com/200/0000FF"
+];
+let i = 0;
+
+function next() {
+  i = (i + 1) % imgs.length;
+  document.getElementById("img").src = imgs[i];
+}
+
+function prev() {
+  i = (i - 1 + imgs.length) % imgs.length;
+  document.getElementById("img").src = imgs[i];
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="quote">Click button for quote</p>
+<button onclick="newQuote()">New Quote</button>
+
+<script >
+    let quotes = [
+  "Practice makes perfect",
+  "Believe in yourself",
+  "Never give up",
+  "Hard work pays off"
+];
+
+function newQuote() {
+  let random = Math.floor(Math.random() * quotes.length);
+  document.getElementById("quote").innerText = quotes[random];
+}
+
+</script>
+</body>
+</html>
