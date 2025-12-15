@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      width: 300px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 0 10px gray;
+    }
+
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 10px 0;
+    }
+
+    button {
+      padding: 8px 15px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Login Page</h2>
+
+    <input type="text" id="userId" placeholder="Enter ID" name="firstname">
+    <input type="password" id="password" placeholder="Enter Password" name="password">
+
+    <br>
+
+    <button id="loginBtn">Login</button>
+    <button id="signupBtn">registration</button>
+  </div>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", function () {
+      window.location.href = "login.html";
+    });
+
+    document.getElementById("signupBtn").addEventListener("click", function () {
+      window.location.href = "registration.html";
+    });
+  </script>
+
+</body>
+</html>
