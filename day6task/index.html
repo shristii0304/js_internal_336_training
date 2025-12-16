@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HCL Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- PAGE HEADING -->
+<div class="page-heading">
+    <h1>HCL Assessment TASK</h1>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+
+<div class="container">
+
+    <!-- ABOUT -->
+    <!-- ABOUT HCL -->
+<div class="box about-box">
+    <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/HCL_Technologies_logo.svg/512px-HCL_Technologies_logo.svg.png"
+        alt="HCL Logo"
+        class="hcl-logo"
+    >
+
+    <h2>About HCL Technologies</h2>
+
+    <p>
+        <strong>HCL Technologies</strong> is a leading global IT services
+        and consulting company headquartered in India.
+        It operates in more than <strong>60 countries</strong> and serves
+        clients across industries such as banking, healthcare,
+        manufacturing, and technology.
+    </p>
+
+    <p>
+        HCL focuses on <strong>digital transformation</strong>,
+        <strong>cloud computing</strong>, <strong>artificial intelligence</strong>,
+        and <strong>cybersecurity</strong>. The company is known for its
+        innovative approach, customer-centric solutions, and strong
+        engineering culture.
+    </p>
+
+    <p>
+        With millions of users supported worldwide, HCL plays a
+        crucial role in building reliable, scalable, and secure
+        IT solutions for modern enterprises.
+    </p>
+</div>
+
+
+  
+   
+<!-- GALLERY -->
+<div class="box">
+    <h2 class="gallery-title">Gallery</h2>
+
+    <div class="gallery-wrapper">
+        <div class="gallery-scroll">
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400">
+                <p>Corporate Office</p>
+            </div>
+
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400">
+                <p>Team Collaboration</p>
+            </div>
+
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400">
+                <p>Business Meeting</p>
+            </div>
+
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400">
+                <p>Technology Lab</p>
+            </div>
+
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400">
+                <p>IT Workspace</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- LOGIN -->
+    <div class="box">
+        <h2>Login</h2>
+
+        <input type="text" id="loginUser" placeholder="Username">
+        <input type="password" id="loginPass" placeholder="Password">
+
+        <p id="loginError" class="error"></p>
+
+        <button onclick="login()">Login</button>
+        <button onclick="goToRegister()">Register</button>
+    </div>
+
+</div>
+
+<script>
+function login() {
+    let user = document.getElementById("loginUser").value;
+    let pass = document.getElementById("loginPass").value;
+    let error = document.getElementById("loginError");
+
+    if (user === "" || pass === "") {
+        error.innerText = "All fields are required!";
+        return;
+    }
+
+    if (pass.length < 6) {
+        error.innerText = "Password must be at least 6 characters!";
+        return;
+    }
+
+    error.innerText = "";
+    alert("Login successful!");
+}
+
+function goToRegister() {
+    window.location.href = "register.html";
+}
+</script>
+
+</body>
+</html>
