@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo of Online Project</title>
+
+<style>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== BODY ===== */
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color:#333;
+}
+
+/* ===== HEADER ===== */
+header{
+  background:rgba(255,255,255,0.95);
+  padding:22px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+header h1{
+  margin-bottom:12px;
+  font-size:28px;
+  letter-spacing:1px;
+}
+
+/* ===== NAV ===== */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#555;
+  font-weight:500;
+  position:relative;
+  padding-bottom:5px;
+  transition:0.3s ease;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:#667eea;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#667eea;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* ===== MAIN SECTION ===== */
+.main{
+  flex:1;
+  display:flex;
+  gap:25px;
+  padding:35px;
+}
+
+/* ===== CARD COMMON ===== */
+.card{
+  flex:1;
+  background:rgba(255,255,255,0.95);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 20px 45px rgba(0,0,0,0.25);
+  transition:0.4s ease;
+}
+
+.card:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:0 35px 70px rgba(0,0,0,0.35);
+}
+
+/* ===== LEFT CARD ===== */
+.left-card{
+  text-align:center;
+  line-height:2;
+  font-size:15px;
+}
+
+/* ===== CENTER CARD ===== */
+.center-card h3{
+  text-align:center;
+  margin-bottom:15px;
+}
+
+marquee{
+  height:240px;
+  font-size:15px;
+}
+
+/* ===== LOGIN CARD ===== */
+.login-card h3{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+table{
+  width:100%;
+}
+
+td{
+  padding:10px 6px;
+  font-size:14px;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  transition:0.3s;
+}
+
+input:focus{
+  outline:none;
+  border-color:#667eea;
+  box-shadow:0 0 0 3px rgba(102,126,234,0.25);
+}
+
+/* ===== BUTTONS ===== */
+button{
+  padding:10px 22px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:14px;
+  margin:6px;
+  transition:0.3s ease;
+}
+
+button[type="submit"]{
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color:#fff;
+}
+
+button[type="reset"]{
+  background:#e0e0e0;
+}
+
+button:hover{
+  transform: scale(1.08);
+  box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* ===== ERROR ===== */
+.error{
+  color:#e74c3c;
+  font-size:12px;
+  display:none;
+}
+
+/* ===== SIGNUP LINK ===== */
+.signup{
+  display:block;
+  margin-top:18px;
+  text-align:center;
+  font-weight:500;
+  text-decoration:none;
+  color:#667eea;
+  transition:0.3s;
+}
+
+.signup:hover{
+  color:#764ba2;
+  letter-spacing:0.6px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Demo of Online Project</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Gallery</a>
+    <a href="#">Menu3</a>
+    <a href="#">Menu4</a>
+    <a href="#">Menu5</a>
+    <a href="#">Menu6</a>
+  </nav>
+</header>
+
+<section class="main">
+
+  <!-- LEFT -->
+  <div class="card left-card">
+    <p>Text 1</p>
+    <p>Text 1</p>
+    <p>Text 1</p>
+    <p>Text 1</p>
+    <p>Text 1</p>
+    <p>Text 1</p>
+  </div>
+
+  <!-- CENTER -->
+  <div class="card center-card">
+    <h3>Important Notices</h3>
+    <marquee direction="up" onmouseover="stop()" onmouseout="start()">
+      Notice 1<br>
+      Notice 2<br>
+      Notice 3<br>
+      Notice 4<br>
+      Notice 5<br>
+      Notice 6<br>
+      Notice 7<br>
+    </marquee>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="card login-card">
+    <h3>Login</h3>
+    <form id="loginForm">
+      <table>
+        <tr>
+          <td>Username</td>
+          <td>
+            <input id="username" type="text">
+            <span id="userError" class="error">Username is required</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>
+            <input id="password" type="password">
+            <span id="passError" class="error">Password is required</span>
+          </td>
+        </tr>
+      </table>
+
+      <center>
+        <button type="submit">Submit</button>
+        <button type="reset">Cancel</button>
+      </center>
+    </form>
+
+    <a class="signup" href="reg.html">New User / Signup</a>
+  </div>
+
+</section>
+
+<script>
+(function(){
+  const form = document.getElementById('loginForm');
+  const userInput = document.getElementById('username');
+  const passInput = document.getElementById('password');
+  const userError = document.getElementById('userError');
+  const passError = document.getElementById('passError');
+
+  function show(el){ el.style.display = 'inline'; }
+  function hide(el){ el.style.display = 'none'; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let ok = true;
+
+    if(!userInput.value.trim()){ show(userError); ok=false; } else hide(userError);
+    if(!passInput.value.trim()){ show(passError); ok=false; } else hide(passError);
+
+    if(ok){
+      const params = new URLSearchParams({
+        user:userInput.value,
+        pass:passInput.value
+      });
+      window.location.href = 'reg.html?' + params.toString();
+    }
+  });
+
+  userInput.addEventListener('input',()=>hide(userError));
+  passInput.addEventListener('input',()=>hide(passError));
+})();
+</script>
+
+</body>
+</html>
