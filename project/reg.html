@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration Form</title>
+
+  <style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(120deg,#4facfe,#00f2fe);
+}
+
+.container{
+  width:420px;
+  background: rgba(255,255,255,0.95);
+  padding:30px 28px;
+  border-radius:18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  animation: fadeSlide 0.8s ease-in-out;
+}
+
+@keyframes fadeSlide{
+  from{
+    opacity:0;
+    transform: translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+h2{
+  text-align:center;
+  margin-bottom:25px;
+  color:#333;
+  font-weight:600;
+}
+
+label{
+  display:block;
+  margin-bottom:6px;
+  color:#555;
+  font-size:14px;
+}
+
+input[type="text"],
+select{
+  width:100%;
+  padding:12px;
+  margin-bottom:18px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:14px;
+  transition:0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus{
+  outline:none;
+  border-color:#4facfe;
+  box-shadow:0 0 0 3px rgba(79,172,254,0.25);
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+  accent-color:#4facfe;
+  margin-right:6px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border:none;
+  border-radius:30px;
+  background: linear-gradient(135deg,#4facfe,#00c6ff);
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+button:hover{
+  transform: translateY(-2px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.25);
+}
+
+.error{
+  color:#e74c3c;
+  text-align:center;
+  margin-top:12px;
+  font-weight:500;
+}
+
+.success{
+  color:#2ecc71;
+  font-weight:600;
+}
+
+.output{
+  margin-top:25px;
+  padding-top:15px;
+  border-top:1px solid #e0e0e0;
+}
+
+.output p{
+  font-size:15px;
+  margin:6px 0;
+  color:#333;
+}
+</style>
+
+
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>Student Registration Form</h2>
+
+<form id="regForm">
+  <label>Name</label>
+  <input type="text" id="name"><br><br>
+
+  <label>Email</label>
+  <input type="text" id="email"><br><br>
+
+  <label>Gender</label><br>
+  <input type="radio" name="gender" value="Male"> Male
+  <input type="radio" name="gender" value="Female"> Female
+  <br><br>
+
+  <label>Course</label>
+  <select id="course">
+    <option value="">-- Select Course --</option>
+    <option value="JavaScript">JavaScript</option>
+    <option value="Python">Python</option>
+    <option value="Java">Java</option>
+  </select>
+  <br><br>
+
+  <input type="checkbox" id="terms">
+  <label>I agree to Terms & Conditions</label>
+  <br><br>
+
+  <button type="submit">Submit</button>
+  <p id="message" class="error"></p>
+</form>
+
+<div class="output" id="output"></div>
+
+</div>
+
+<script>
+document.getElementById("regForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let course = document.getElementById("course").value;
+  let terms = document.getElementById("terms").checked;
+  let gender = document.querySelector('input[name="gender"]:checked');
+
+  let message = document.getElementById("message");
+  let output = document.getElementById("output");
+
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (name === "") {
+    message.textContent = "Name should not be empty";
+    return;
+  }
+  if (!emailPattern.test(email)) {
+    message.textContent = "Email should be valid";
+    return;
+  }
+  if (!gender) {
+    message.textContent = "Gender must be selected";
+    return;
+  }
+  if (course === "") {
+    message.textContent = "Course must be selected";
+    return;
+  }
+  if (!terms) {
+    message.textContent = "Accept Terms & Conditions";
+    return;
+  }
+
+  message.textContent = "";
+
+  output.innerHTML = `
+    <p class="success">Registration Successful!</p>
+    <p><b>Name:</b> ${name}</p>
+    <p><b>Email:</b> ${email}</p>
+    <p><b>Gender:</b> ${gender.value}</p>
+    <p><b>Course:</b> ${course}</p>
+  `;
+
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
+  localStorage.setItem("gender", gender.value);
+  localStorage.setItem("course", course);
+
+  setTimeout(() => {
+    window.location.href = "result.html";
+  }, 2000);
+});
+</script>
+
+</body>
+</html>
